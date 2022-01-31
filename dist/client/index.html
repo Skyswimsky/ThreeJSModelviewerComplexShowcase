@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="manifest"
+        href="./manifest.json" />
+  <meta charset="utf-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1" />
+  <title>Behälter-3D-Viewer</title>
+  <link rel="icon"
+        href="./icons/512x512.png">
+  <style>
+    :root {
+      --tp-blade-unit-size: 1.4rem;
+      --tp-font-family: Roboto, "sans-serif", Segoe UI, Helvetica, Verdana, sans-serif !important;
+      --tp-base-background-color: #ececec;
+      --tp-label-foreground-color: black;
+
+
+      --tp-input-background-color: white;
+      --tp-input-background-color-active: white;
+      --tp-input-background-color-focus: white;
+      --tp-input-background-color-hover: white;
+      --tp-input-foreground-color: black;
+
+      --tp-button-background-color: hsla(200, 100%, 38%, 1);
+      --tp-button-background-color-active: hsla(200, 100%, 58%, 1);
+      --tp-button-background-color-focus: hsla(200, 100%, 53%, 1);
+      --tp-button-background-color-hover: hsla(200, 100%, 43%, 1);
+
+      --tp-container-background-color: #ececec;
+      --tp-container-background-color-active: #ececec;
+      --tp-container-background-color-focus: #ececec;
+      --tp-container-background-color-hover: #ececec;
+      --tp-container-foreground-color: black;
+    }
+
+    body {
+      background-color: #eee;
+      overflow: hidden;
+      margin: 0px;
+    }
+
+
+    #main-container {
+      display: flex;
+      flex-direction: row;
+      height: 100vh;
+    }
+
+    #left-container {
+      flex: 1 1 auto;
+      align-self: stretch;
+      min-height: 1%;
+    }
+
+    #right-container {
+      flex: 1 1 auto;
+      align-self: stretch;
+    }
+
+    #my-canvas {
+      width: 100%;
+      height: 100%;
+    }
+
+    @media only screen and (orientation: portrait) {
+      #main-container {
+        flex-direction: column-reverse;
+      }
+    }
+
+
+
+    model-viewer {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    #input-data {
+      margin: 1em;
+    }
+
+    #qr-canvas {
+      height: 1px;
+      width: 1px;
+    }
+
+    .tp-radv_b {
+      background-color: hsla(0, 0%, 80%, 1) !important;
+    }
+
+    .tp-radv_b:active {
+      background-color: hsla(0, 0%, 100%, 1) !important;
+    }
+
+    .tp-radv_b:focus {
+      background-color: hsla(0, 0%, 95%, 1) !important;
+    }
+
+    .tp-radv_b:hover {
+      background-color: hsla(0, 0%, 85%, 1) !important;
+    }
+
+    #ar-warning {
+      font-family: Roboto, "sans-serif", Segoe UI, Helvetica, Verdana, sans-serif;
+      font-size: 12px;
+      padding: 8px;
+      max-width: 300px;
+      line-height: 1.3;
+    }
+  </style>
+</head>
+
+<body>
+  <script type="module"
+          src="./model-viewer.min.js"></script>
+  <div id="main-container">
+    <div id="left-container"><canvas id="my-canvas"></canvas></div>
+    <div id="right-container">
+      <div id="gui-panel"></div>
+      <div id="ar-warning">Bitte drücken Sie zur Anzeige des Behälters im Reality-Viewer auf die Schaltfläche
+        "Start".<br><br>
+
+        Hinweis: Die Funktionsweise des Reality-Viewers ist von der Hardware und der
+        Internet-Verbindung Ihres Gerätes
+        abhängig.</div>
+    </div>
+
+
+  </div>
+  <model-viewer class=""
+                id="mv"
+                src=""
+                ar
+                ar-modes="webxr scene-viewer quick-look"
+                environment-image="neutral"
+                auto-rotate
+                ar-scale="fixed"
+                camera-controls>
+    <button slot="ar-button"
+            id="ar-button">
+  </model-viewer>
+  <script type="module"
+          src="bundle.js?v=3"></script>
+
+</body>
+
+</html>

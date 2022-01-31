@@ -1,0 +1,9 @@
+{
+  "name": "Behälter-3D-Viewer",
+  "short_name": "Behälter-3D-Viewer",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#fafafa",
+  "theme_color": "#23232e",
+  "orientation": "portrait-primary"
+}

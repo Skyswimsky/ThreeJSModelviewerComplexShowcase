@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "strict": true,
+        "target": "ES2021",
+        "strictPropertyInitialization": false,
+        "paths": {
+            "three/examples/jsm/libs/dat.gui.module": [
+                "../../node_modules/@types/dat.gui"
+            ]
+        }
+    },
+    "include": [
+        "**/*.ts"
+, "src-sw.js", "src-sw.js", "src-sw.js"    ]
+}
